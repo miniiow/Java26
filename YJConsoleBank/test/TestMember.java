@@ -12,12 +12,13 @@ import bank.member.YJMemberService;
 public class TestMember {
 	public static void main(String[] args) {
 //		testMemberDao();
-//		testMemberService();
-		testMemberOracleDao();
+		testMemberService();
+//		testMemberOracleDao();
 	}
 	
 	public static void testMemberService() {
-		MemberService ms = new YJMemberService(new MemberListDao());
+//		MemberService ms = new YJMemberService(new MemberListDao());
+		MemberService ms = new YJMemberService(new MemberOracleDao());
 		
 		System.out.println(">> 회원가입 및 목록조회");
 		ms.join("yujin", "1111", "유진");
@@ -29,8 +30,7 @@ public class TestMember {
 		System.out.println(">> 로그인, 로그아웃");
 		if(ms.login("yujin", "1111"))
 			System.out.println(ms.getLoggedMember());
-		ms.logout
-		();
+		ms.logout();
 		System.out.println(ms.getLoggedMember());
 		
 		System.out.println(">> 회원정보 보기");
